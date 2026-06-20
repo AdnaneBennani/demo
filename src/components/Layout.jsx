@@ -1,11 +1,14 @@
 import { NavLink, Outlet, useNavigate } from 'react-router'
-import { LayoutDashboard, Users, LogOut, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Users, LogOut, Menu,ShieldHalf, Dumbbell,X,CreditCard } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
 const NAV_ITEMS = [
   { to: '/dashboard', label: 'Dashboard',  icon: LayoutDashboard },
   { to: '/membres',   label: 'Membres',    icon: Users },
+  { to: '/equipes',   label: 'Équipes',          icon: ShieldHalf },
+  { to: '/entrainements', label: 'Entraînements',   icon: Dumbbell },
+  { to: '/paiements',   label: 'Paiements',    icon: CreditCard },
 ]
 
 function NavItem({ to, label, icon: Icon }) {
@@ -53,13 +56,13 @@ export default function Layout() {
 
       {/* User + logout */}
       <div className="border-t border-navy-600 pt-4">
-        <div className="mb-3 px-3">
+        {/* <div className="mb-3 px-3">
           <p className="text-xs text-navy-300">Connecté en tant que</p>
           <p className="truncate text-sm font-semibold text-white">{user?.name}</p>
           <span className="inline-block rounded-full bg-brand-blue-500/20 px-2 py-0.5 text-xs text-brand-blue-300 capitalize">
             {user?.role}
           </span>
-        </div>
+        </div> */}
         <button
           onClick={handleLogout}
           className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-navy-300 transition-colors hover:bg-red-900/40 hover:text-red-400"
